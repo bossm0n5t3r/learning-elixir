@@ -3,7 +3,7 @@
 # https://elixirschool.com/en/lessons/testing/basics
 
 # set up the test runner
-ExUnit.start
+ExUnit.start()
 
 defmodule UnitTesting do
   # use requires a module and sets up macros; will explore more later
@@ -13,7 +13,7 @@ defmodule UnitTesting do
   # within each test case are still run serially.
   use ExUnit.Case, async: true
 
-  test 'simple test' do
+  test ~c"simple test" do
     # Elixir is smart! No need for assert_equal, assert_gte, etc.
     # And we still get great failure messages, yipee!
 
@@ -24,7 +24,8 @@ defmodule UnitTesting do
     #    right: 43
     #    stacktrace:
     #      01-unit-testing.exs:27: (test)
-    assert 40 + 2 == 42 # 43 으로 바꿔서 실행하면 위의 실패 메시지를 확인할 수 있다.
+    # 43 으로 바꿔서 실행하면 위의 실패 메시지를 확인할 수 있다.
+    assert 40 + 2 == 42
   end
 
   # test macro accepts string as test name
@@ -40,8 +41,9 @@ defmodule UnitTesting do
   end
 
   test "assert_in_delta asserts that val1 and val2 differ by less than delta." do
-    assert_in_delta 1, # actual
-                    5, # expected
-                    6  # delta
+    # actual, expected, delta
+    assert_in_delta 1,
+                    5,
+                    6
   end
 end
