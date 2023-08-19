@@ -1,6 +1,6 @@
 # https://elixir-lang.org/getting-started/basic-types.html
 
-ExUnit.start
+ExUnit.start()
 
 defmodule BasicTypes do
   use ExUnit.Case
@@ -19,7 +19,6 @@ defmodule BasicTypes do
 
   # https://elixir-lang.org/getting-started/basic-types.html#basic-arithmetic
   test "Basic arithmetic" do
-
     assert 1 + 2 == 3
     assert 5 * 5 == 25
     # Notice that 10 / 2 returned a float 5.0 instead of an integer 5.
@@ -28,9 +27,9 @@ defmodule BasicTypes do
     # If you want to do integer division or get the division remainder,
     # you can invoke the div and rem functions.
     assert div(10, 2) == 5
-    assert (div 10, 2) == 5
-    assert (rem 10, 2) == 0
-    assert (rem 10, 3) == 1
+    assert div(10, 2) == 5
+    assert rem(10, 2) == 0
+    assert rem(10, 3) == 1
 
     # Elixir also supports shortcut notations for entering binary, octal, and hexadecimal numbers
     assert 0b1010 == 10
@@ -109,7 +108,6 @@ defmodule BasicTypes do
     # check if add is a function that expects exactly 1 argument
     refute is_function(add, 1)
 
-
     double = fn a -> add.(a, a) end
 
     assert double.(2) == 4
@@ -122,7 +120,7 @@ defmodule BasicTypes do
   # https://elixir-lang.org/getting-started/basic-types.html#linked-lists
   test "(Linked) Lists" do
     assert [1, 2, true, 3] == [1, 2, true, 3]
-    assert (length [1, 2, 3]) == 3
+    assert length([1, 2, 3]) == 3
 
     assert [1, 2, 3] ++ [4, 5, 6] == [1, 2, 3, 4, 5, 6]
     assert [1, true, 2, false, 3, true] -- [true, false] == [1, 2, 3, true]
@@ -141,14 +139,14 @@ defmodule BasicTypes do
 
     # Single quotes are charlists, double quotes are strings.
     assert [104, 101, 108, 108, 111] == ~c"hello"
-    refute 'hello' == "hello"
-    assert 'hello' == ~c"hello"
+    refute ~c"hello" == "hello"
+    assert ~c"hello" == ~c"hello"
   end
 
   # https://elixir-lang.org/getting-started/basic-types.html#tuples
   test "Tuples" do
     assert {:ok, "hello"} == {:ok, "hello"}
-    assert (tuple_size {:ok, "hello"}) == 2
+    assert tuple_size({:ok, "hello"}) == 2
 
     tuple = {:ok, "hello"}
     assert elem(tuple, 1) == "hello"
