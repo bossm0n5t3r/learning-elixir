@@ -1,6 +1,6 @@
 # https://elixir-lang.org/getting-started/pattern-matching.html
 
-ExUnit.start
+ExUnit.start()
 
 defmodule PatternMatching do
   use ExUnit.Case
@@ -49,7 +49,6 @@ defmodule PatternMatching do
 
   # https://elixir-lang.org/getting-started/pattern-matching.html#the-pin-operator
   test "The pin operator" do
-
     assert_raise MatchError, fn ->
       x = 1
       ^x = 2
@@ -63,6 +62,7 @@ defmodule PatternMatching do
     [^x, 2, 3] = [1, 2, 3]
     {y, ^x} = {2, 1}
     assert y == 2
+
     assert_raise MatchError, fn ->
       {y, ^x} = {2, 2}
     end
@@ -72,6 +72,7 @@ defmodule PatternMatching do
     end
 
     {x, x} = {1, 1}
+
     assert_raise MatchError, fn ->
       {x, x} = {1, 2}
     end
