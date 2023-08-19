@@ -1,6 +1,6 @@
 # https://elixir-lang.org/getting-started/basic-operators.html
 
-ExUnit.start
+ExUnit.start()
 
 defmodule BasicOperators do
   use ExUnit.Case
