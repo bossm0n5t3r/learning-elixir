@@ -1,4 +1,4 @@
-# http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html
+# https://hexdocs.pm/elixir/1.16/introduction-to-mix.html
 # https://hexdocs.pm/ex_unit/ExUnit.html
 # https://elixirschool.com/en/lessons/testing/basics
 
